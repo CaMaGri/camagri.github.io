@@ -1,0 +1,72 @@
+baseURL = "https://camagri.github.io/"
+title = "Samelat's"
+theme = 'poison'
+
+[params]
+    author = "Gaston Traberg" 
+    description = "team blog"
+    brand_image = "/logo.jpeg"
+    brand = "CaMaGri"
+    # menu_item_separator: Separator between each menu item. HTML allowed (default: " - “)
+    # favicon: Absolute path of your favicon.ico file (default: “/favicon.ico”)
+
+[params.style]
+    primaryColor = "#80c7ff"
+
+[[params.social]]
+    icon = "github"
+    name = "Github"
+    url = "https://github.com/samelat"
+
+[[params.social]]
+    icon = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/_samelat"
+
+
+defaultContentLanguage = 'es'
+[languages]
+    [languages.es]
+        weight = 1
+
+[[languages.es.menu.main]]
+    identifier = "projects"
+    name = "Proyectos"
+    url = "/es/posts/projects/"
+    weight = 1
+
+[[languages.es.menu.main]]
+    identifier = "bc"
+    parent = "projects"
+    name = "BuccaneerCircus"
+    url = "/es/posts/projects/bc/"
+    weight = 2
+
+[[languages.es.menu.main]]
+    identifier = "about"
+    name = "Nosotros"
+    url = "/about/"
+    weight = 100
+
+    [languages.en]
+        weight = 2
+
+[[languages.en.menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/posts/projects/"
+    weight = 1
+
+[[languages.en.menu.main]]
+    identifier = "bc"
+    parent = "projects"
+    name = "BuccaneerCircus"
+    url = "/posts/projects/bc/"
+    weight = 2
+
+[[languages.en.menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 100
+
