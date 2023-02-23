@@ -1,4 +1,5 @@
 const btn = document.querySelector(".btn-light-dark");
+const langBtn = document.querySelector(".btn-en-es");
 const moon = document.querySelector(".moon");
 const sun = document.querySelector(".sun");
 
@@ -29,4 +30,13 @@ btn.addEventListener("click", function () {
         sun.style.display = 'none';
     }
     localStorage.setItem("theme", theme);
+});
+
+langBtn.addEventListener("click", (_event) => {
+    console.log(langBtn.attributes['lang'].value);
+    if(langBtn.attributes['lang'].value == 'es') {
+        window.location = location.pathname.replace('/es/', '/');
+    } else {
+        window.location = '/es' + location.pathname;
+    }
 });

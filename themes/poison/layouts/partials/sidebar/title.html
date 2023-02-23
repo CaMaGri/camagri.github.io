@@ -1,12 +1,12 @@
 <div class="sidebar-about">
     <h1 class="brand">
         {{ if .Site.Params.brand_image }}
-            <a href="{{ .Site.BaseURL }}">
+            <a href="{{ .Site.BaseURL }}{{ .Lang }}/">
                 <img src="{{ .Site.Params.brand_image }}" alt="brand image">
             </a>
         {{ end }}
         {{ if .Site.Params.brand }}
-            <a href="{{ .Site.BaseURL }}">
+            <a href="{{ .Site.BaseURL }}{{ .Lang }}/">
                 <h1>{{ .Site.Params.brand }}</h1>
             </a>
         {{ end }}
