@@ -7,21 +7,12 @@ theme = 'poison'
     description = "team blog"
     brand_image = "/logo.jpeg"
     brand = "CaMaGri"
+    dark_mode = true
     # menu_item_separator: Separator between each menu item. HTML allowed (default: " - “)
     # favicon: Absolute path of your favicon.ico file (default: “/favicon.ico”)
 
-[params.style]
-    primaryColor = "#80c7ff"
-
-[[params.social]]
-    icon = "github"
-    name = "Github"
-    url = "https://github.com/samelat"
-
-[[params.social]]
-    icon = "twitter"
-    name = "Twitter"
-    url = "https://twitter.com/_samelat"
+    github_url = "https://github.com/camagri"
+    twitter_url = "https://twitter.com/BuccaneerCircus"
 
 
 defaultContentLanguage = 'es'
@@ -45,8 +36,9 @@ defaultContentLanguage = 'es'
 [[languages.es.menu.main]]
     identifier = "about"
     name = "Nosotros"
-    url = "/about/"
+    url = "/es/about/"
     weight = 100
+
 
     [languages.en]
         weight = 2
