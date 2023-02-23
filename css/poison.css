@@ -48,6 +48,12 @@ h1, h2, h3, h4, h5, strong {
     color: var(--code-color);
     background-color: var(--code-background-color) !important;
 }
+
+.light-dark {
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn-light-dark .moon {
     color: var(--moon-sun-color);
 }
@@ -64,6 +70,27 @@ h1, h2, h3, h4, h5, strong {
     width: 40px;
     height: 40px;
     background-color: var(--moon-sun-background-color);
+}
+
+.btn-en-es {
+    padding: 0;
+    margin: 1em;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--moon-sun-background-color);
+    color: white;
+}
+
+.btn-en-es div {
+    display: none;
+}
+
+.btn-en-es .active {
+    display: block;
 }
 /* ************************** */
 .layout-reverse .content {
