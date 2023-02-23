@@ -1,5 +1,5 @@
 baseURL = "https://camagri.github.io/"
-title = "Samelat's"
+title = "CaMaGri"
 theme = 'poison'
 
 [params]
