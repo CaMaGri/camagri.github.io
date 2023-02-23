@@ -1,6 +1,6 @@
 ---
 title: "Detras de Escena - Parte 1 - Introducción"
-date: 2023-02-18T23:59:35+01:00
+date: 2023-02-11T23:59:35+01:00
 ---
 
 ## Comienzos ## 
@@ -20,7 +20,7 @@ Para entender bien no solo la arquitectura del proyecto sino también cómo func
 
 ![Wanted Captains](/posts/projects/bc/wanted_banner.png)
 
-***Wanted** refleja las vivencias de los tripulantes y no tanto, con respecto de sus capitanes prófugos de la ley. Los experimentados suelen saber contar de manera fiel los sucesos que llevaron a la condena de su líder, mientras que los grumetes desconocen los detalles. Y es en este cóctel de emociones que la falta de empatía forja las traiciones.*
+***Wanted** refleja las vivencias de los tripulantes con respecto a sus capitanes prófugos de la ley, y  no tanto de éstos últimos en sí. Los experimentados suelen saber contar de manera fiel los sucesos que llevaron a la condena de su líder, mientras que los grumetes desconocen los detalles y los juzgan peor. Y es en este cóctel de emociones que la falta de empatía forja las traiciones.*
 
 El objetivo en Wanted es conseguir dos delatores de un mismo capitán para así poder entregar este a la justicia y obtener su token como recompensa.
 Un detalle importante a tener en cuenta es que cada capitán tiene 8 delatores pertenecientes a dos grupos diferentes A y B. Para poder reclamar un capitán necesitamos que un delator sea del grupo A y el otro del grupo B.
@@ -29,7 +29,7 @@ Un detalle importante a tener en cuenta es que cada capitán tiene 8 delatores p
 
 ![The Cursed One](/posts/projects/bc/the-cursed-one_banner.png)
 
-*La leyenda detrás de **The Cursed One** nos cuenta la historia de un capitán que se atrevió a enfrentar al mismo Diablo y por su soberbia, fue condenado a navegar por siempre. Es de común saber para los isleños que no se debe cantar sobre este marino, pues es una invitación a que se aparezca, y pocos hay con vida que sepan contar cómo termina ese cuento.*
+*La leyenda detrás de **The Cursed One** nos cuenta la historia de un capitán que se atrevió a enfrentar al mismo Diablo y por su soberbia, fue condenado a navegar por siempre. Es de común saber para los isleños que no se debe cantar sobre este marino, pues es una invitación a que se aparezca, y pocos hay con vida que sepan contar cómo termina eso.*
 
 El poema de The Cursed One está compuesto por ocho estrofas que deben ser escritas en un papel para ser recordadas. Este papel se encuentra en la cabina a la que accedemos por la puerta que se nos presenta en esta aventura, solo pudiendo acceder a ella si poseemos al menos un token de BuccaneerCircus.
 Al final, con las ocho estrofas escritas y conservando al menos cuatro de los ocho token que nos las proporcionaron, estaremos listos entonces para pronunciar el poema, invocar a The Cursed One y obtener el token #0 de BuccaneerCircus.
@@ -46,10 +46,10 @@ Con esta leyenda inicia una de las aventuras más ambiciosas de BuccaneerCircus.
 The Sunken Legend nos cuenta de un cofre llamado el Marquis' Banquet, el cual solo puede ser accedido si se poseen las cuatro llaves que lo abren. Estas cuatro llaves se encuentran distribuidas entre los tokens de BuccaneerCircus y como en las demás aventuras, solo sabremos si un token posee una llave, una vez este haya sido minteado.
 
 Algunas cosas a destacar
-Las llaves pueden ser transferidas entre tokens siempre y cuando los tokens existan bajo una misma cuenta.
-Nada impide que un token posea más de una llave, incluso todas las llaves.
-Las llaves serán redistribuidas aleatoriamente entre todos los tokens de BuccaneerCircus, una vez el contenido del cofre sea reclamado.
-Por último, una llave también puede ser redistribuida si transcurre un periodo mayor a un mes sin que esta se haya transferido a otro token.
+* Las llaves pueden ser transferidas entre tokens siempre y cuando los tokens existan bajo una misma cuenta.
+* Nada impide que un token posea más de una llave, incluso todas las llaves.
+* Las llaves serán redistribuidas aleatoriamente entre todos los tokens de BuccaneerCircus, una vez el contenido del cofre sea reclamado.
+* Por último, una llave también puede ser redistribuida si transcurre un periodo mayor a un mes sin que esta se haya transferido a otro token.
 
 Al final deberemos tener todos los tokens que poseen llaves para acceder al Marquis' Banquet y a su contenido.
 
