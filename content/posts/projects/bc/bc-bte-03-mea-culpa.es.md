@@ -8,7 +8,7 @@ En esta sección vamos a analizar dos casos que hacen a la seguridad del proyect
 La idea detrás de *Mea Culpa* no es dar a conocer problemas que alguien pueda intentar utilizar para atacarnos, sino ser transparentes con las dificultades que el proyecto presentó, cómo se solucionaron y para esos casos en donde el escenario sigue vigente, dar herramientas y hacer conscientes a los usuarios para que ellos tengan la posibilidad de evitarlos.
 Esconder los problemas nunca es buena idea.
 
-## FrontRun en las transferencias ##
+## FrontRun & Scam ##
 
 Supongamos el siguiente escenario: Bob tiene un token que pertenece al grupo A de los tokens que delatan al capitán #5 y nosotros tenemos un token del grupo B para el mismo capitán. El capitán #5 aún no fue reclamado por lo que nosotros queremos comprar el token de Bob para poder ejecutar el reclamo. Bob nos lo vende por alguna plataforma de Marketplace pero cuando lo recibimos nos damos cuenta que el capitán #5 ya fue reclamado por el mismo Bob. Que paso?
 
@@ -51,9 +51,10 @@ La función *cleanPayments()* descrita durante el análisis del contrato *Marqui
 
 Esta versión no parece muy diferente a la actual, pero tiene una diferencia clave: Borrar y Reembolsa en el bounty todos aquellos pagos que, como única condición, hayan expirado.
 
-El problema ocurrió puntualmente al agregar la línea 252 al contrato sin estudiar sus implicancias. Sin esa línea, la función simplemente elimina todos los *Payments* expirados, pero aquellos que no habían sido pagados pero sí aprobados, generan un desbalance en el contrato que hacía que el mismo finalmente tuviese más Ethereum del que se podía disponer, el cual no se iba a poder recuperar.
-
-Con la línea 252 se pretendía reembolsar ese Ethereum al bounty pero se introdujo una vulnerabilidad en el proceso. Con esa linea, ahora los pagos expirados, pagados o no, aprobado o no, eran reembolsados, permitiendo a un atacante por ejemplo, incrementar de forma arbitraria el valor de la variable *bountyBalance* y en una invocación a *shuffle()* obtener el 1% de esta variable por llave a procesar pero extrayendo mucho más en el proceso que lo que realmente corresponde.
+El problema ocurrió puntualmente al agregar la línea 252 al contrato sin estudiar sus implicancias.\
+Sin esa línea, la función simplemente elimina todos los *Payments* expirados incluidos los que no fueron pagados, generando un desbalance en el contrato que hace que el mismo finalmente tuviese **más Ethereum del que indicaba la variable *bountyBalance***, sin que este se pudiese recuperar.\
+Ahora, con la línea 252 agregada, se pretendía reembolsar ese Ethereum al bounty pero se introdujo una vulnerabilidad en el proceso. Con esa nueva línea los pagos expirados eran reembolsados pero no solo si no habían sido pagados, sino también cuando ya lo habían sido. En otras palabras, los pagos que ya habían sido efectuados no debían ser devueltos al bounty porque ese ethereum ya no existía, pero de todas maneras se lo hacía.\
+Entonces ahora **la variable *bountyBalance* podría estar indicando más ethereum que el que realmente había en el contrato**, lo que permitiría a un atacante por ejemplo, invocar a *shuffle()*, obtener el 1% de *bountyBalance* por llave a procesar y extraer mucho más en el proceso que lo que realmente corresponde.
 
 Este fue el único cambio existente de este tipo en los contratos, pero sirve para dejar claro que los contratos deben ser muy bien observados, incluso ante los cambios más minúsculos.
 

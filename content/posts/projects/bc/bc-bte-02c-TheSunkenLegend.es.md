@@ -185,7 +185,6 @@ Para poder hacernos del Ethereum del pago ya aprobado, debemos invocar la funci�
             // Unpaid and Approved and Expired
             if (
                 (_payment.paid == false) && 
-                (_payment.approved == true) && 
                 (_payment.expirationBlock < block.number))
             {
 
@@ -203,7 +202,7 @@ Para poder hacernos del Ethereum del pago ya aprobado, debemos invocar la funci�
         }
     }
     ```
-    Esta función mantiene un índice dentro del vector **allPaymentIds** que utiliza para recorrer los nuevos pagos agregados desde su última ejecución, eliminando aquellos que no hayan sido pagados, estén aprobados y hayan expirado.\
+    Esta función mantiene un índice dentro del vector **allPaymentIds** que utiliza para recorrer los nuevos pagos agregados desde su última ejecución, eliminando aquellos que no hayan sido pagados y hayan expirado.\
     Más adelante en la sección *Mea Culpa*, presentaremos un problema ocurrido durante la implementación de esta función, que sirve como anécdota.
 
 Hasta aquí hemos analizado el caso de uso típico de este contrato, dejando fuera del análisis solo algunas funciones que veremos a continuación.
