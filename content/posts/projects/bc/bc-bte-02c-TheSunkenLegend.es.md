@@ -172,38 +172,34 @@ Para poder hacernos del Ethereum del pago ya aprobado, debemos invocar la funci�
     *claimPayment()* controlará que el pago esté aprobado y no haya sido ya pagado, que el destinatario del pago seamos nosotros y que el pago no haya ya expirado. Con estas condiciones satisfechas, el mismo es marcado como pagado para evitar llamadas reentrantes y luego se ejecuta la transferencia del monto indicado.\
     Algunas cosas a notar en este punto: Podemos estar recibiendo un monto menor a la cantidad de dinero que el contrato tiene al momento de invocar *claimPayment()*, ya que el pago se define al momento de invocar la función *claimBounty()* y no al invocar *claimPayment()*. Podemos tener varios pagos pendientes siempre y cuando estos no tengan más de una semana desde su creación.
 
-7. Por último, la función **cleanPayments()** trabaja como una suerte de *Garbage Collector* recuperando el balance de todos aquellos pagos vencidos e incorporandolo al balance el bounty nuevamente.
+7. Por último, la función **cleanPayments()** trabaja como una suerte de *Garbage Collector*, recuperando el balance de todos aquellos pagos que vencieron y no fueron pagados.
 
     ```solidity
     function cleanPayments() public {
         require(cleanPaymentsIndex < allPaymentIds.length);
+        require(
+            payments[allPaymentIds[cleanPaymentsIndex]].expirationBlock < block.number,
+            "no expired payments"
+        );
 
-        while(cleanPaymentsIndex < allPaymentIds.length) {
+        for(; cleanPaymentsIndex < allPaymentIds.length; cleanPaymentsIndex++) {
             Payment memory _payment = payments[allPaymentIds[cleanPaymentsIndex]];
 
-            // To refund the Payment to the bounty, It has to be:
-            // Unpaid and Approved and Expired
-            if (
-                (_payment.paid == false) && 
-                (_payment.expirationBlock < block.number))
-            {
-
-                allPaymentIds[cleanPaymentsIndex] = allPaymentIds[
-                    allPaymentIds.length - 1
-                ];
-                allPaymentIds.pop();
-
-                bountyBalance += _payment.amount;
-
-            } else {
-
-                cleanPaymentsIndex++;
+            if(_payment.paid == true) {
+                continue;
             }
+
+            // Is It not expired?
+            if(_payment.expirationBlock >= block.number) {
+                break;
+            }
+
+            // If we are here is because the payment was not paid and It is expired
+            bountyBalance += _payment.amount;
         }
     }
     ```
-    Esta función mantiene un índice dentro del vector **allPaymentIds** que utiliza para recorrer los nuevos pagos agregados desde su última ejecución, eliminando aquellos que no hayan sido pagados y hayan expirado.\
-    Más adelante en la sección *Mea Culpa*, presentaremos un problema ocurrido durante la implementación de esta función, que sirve como anécdota.
+    La variable **cleanPaymentsIndex** referencia el próximo pago a procesado por *cleanPayments()* dentro de los pagos existentes en **allPaymentIds**. Cuando *cleanPaymentsIndex* referencia un pago que ha expirado pero que no ha sido pagado, la función suma al balance del bounty el monto del mismo antes de continuar con la siguiente entrada. Al final la función se detendrá cuando no haya más pagos que procesar o cuando el pago referenciado aun no este vencido ni pagado.
 
 Hasta aquí hemos analizado el caso de uso típico de este contrato, dejando fuera del análisis solo algunas funciones que veremos a continuación.
 

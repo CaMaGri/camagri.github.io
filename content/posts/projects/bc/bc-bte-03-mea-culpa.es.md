@@ -1,6 +1,7 @@
 ---
 title: "Detras de Escena - Parte 4 - Mea Culpa"
 date: 2023-02-19T10:11:45+01:00
+draft: true
 ---
 
 En esta sección vamos a analizar dos casos que hacen a la seguridad del proyecto. En el primero vamos a analizar un posible escenario de fraude que es importante tener presente para intentar evitarlo. En el segundo, vamos a analizar una vulnerabilidad que encontramos en el proyecto, que ya fue reparada, pero que nos pareció interesante compartir por su moraleja.
