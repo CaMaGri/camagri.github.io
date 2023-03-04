@@ -1,6 +1,6 @@
 ---
 title: "Detras de Escena - Parte 1 - Introducción"
-date: 2023-02-11T23:59:35+01:00
+date: 2023-02-11T06:59:35+01:00
 ---
 
 ## Comienzos ## 
@@ -31,29 +31,29 @@ Un detalle importante a tener en cuenta es que cada capitán tiene 8 delatores p
 
 *La leyenda detrás de **The Cursed One** nos cuenta la historia de un capitán que se atrevió a enfrentar al mismo Diablo y por su soberbia, fue condenado a navegar por siempre. Es de común saber para los isleños que no se debe cantar sobre este marino, pues es una invitación a que se aparezca, y pocos hay con vida que sepan contar cómo termina eso.*
 
-El poema de The Cursed One está compuesto por ocho estrofas que deben ser escritas en un papel para ser recordadas. Este papel se encuentra en la cabina a la que accedemos por la puerta que se nos presenta en esta aventura, solo pudiendo acceder a ella si poseemos al menos un token de BuccaneerCircus.
-Al final, con las ocho estrofas escritas y conservando al menos cuatro de los ocho token que nos las proporcionaron, estaremos listos entonces para pronunciar el poema, invocar a The Cursed One y obtener el token #0 de BuccaneerCircus.
+El poema de The Cursed One está compuesto por ocho estrofas que deben ser escritas en un papel para ser recordadas. Este papel se encuentra en la cabina a la que accedemos por la puerta que se nos presenta en esta aventura, solo pudiendo acceder a ella si poseemos al menos un token de *BuccaneerCircus*.
+Al final, con las ocho estrofas escritas y conservando al menos cuatro de los ocho token que nos las proporcionaron, estaremos listos entonces para pronunciar el poema, invocar a The Cursed One y obtener el token #0 de *BuccaneerCircus*.
 
 ### The Sunken Legend ###
 
 ![The Sunken Legend](/posts/projects/bc/the-sunken-legend_banner.png)
 
-*Donde hay piratas, hay tesoros y BuccaneerCircus no es la excepción.
-The Sunken Legend  trata de un marqués Francés que poseía vastas riquezas que parecían no tener fin, al punto de levantar sospechas. Asociado a su filantropía entre amigos, los locales hablaban del "Marquis' Banquet" para referirse a todo esto. Al momento de la muerte del hombre, sus propiedades fueron allanadas en busca de una explicación surreal para tanto dinero, pero ninguna fue jamás encontrada, creando así la leyenda.
+*Donde hay piratas, hay tesoros y *BuccaneerCircus* no es la excepción.
+**The Sunken Legend** trata de un marqués Francés que poseía vastas riquezas que parecían no tener fin, al punto de levantar sospechas. Asociado a su filantropía entre amigos, los locales hablaban del **"Marquess's Banquet"** para referirse a todo esto. Al momento de la muerte del hombre, sus propiedades fueron allanadas en busca de una explicación surreal para tanto dinero, pero ninguna fue jamás encontrada, creando así la leyenda.\
 Algunos cuentan que solo ciertas personas cercanas al marqués conocen el secreto para acceder a estas riquezas, las cuales surgirían del interior de un enorme cofre; lo cierto es que, quien logre posar sus manos sobre él, obtendría una fortuna ilimitada.*
 
-Con esta leyenda inicia una de las aventuras más ambiciosas de BuccaneerCircus.
-The Sunken Legend nos cuenta de un cofre llamado el Marquis' Banquet, el cual solo puede ser accedido si se poseen las cuatro llaves que lo abren. Estas cuatro llaves se encuentran distribuidas entre los tokens de BuccaneerCircus y como en las demás aventuras, solo sabremos si un token posee una llave, una vez este haya sido minteado.
+Con esta leyenda inicia una de las aventuras más ambiciosas de *BuccaneerCircus*.\
+*The Sunken Legend* nos cuenta de un cofre llamado el *Marquess's Banquet*, el cual solo puede ser accedido si se poseen las cuatro llaves que lo abren. Estas cuatro llaves se encuentran distribuidas entre los tokens de *BuccaneerCircus* y como en las demás aventuras, solo sabremos si un token posee una llave, una vez este haya sido minteado.
 
 Algunas cosas a destacar
 * Las llaves pueden ser transferidas entre tokens siempre y cuando los tokens existan bajo una misma cuenta.
 * Nada impide que un token posea más de una llave, incluso todas las llaves.
-* Las llaves serán redistribuidas aleatoriamente entre todos los tokens de BuccaneerCircus, una vez el contenido del cofre sea reclamado.
+* Las llaves serán redistribuidas aleatoriamente entre todos los tokens de *BuccaneerCircus*, una vez el contenido del cofre sea reclamado.
 * Por último, una llave también puede ser redistribuida si transcurre un periodo mayor a un mes sin que esta se haya transferido a otro token.
 
-Al final deberemos tener todos los tokens que poseen llaves para acceder al Marquis' Banquet y a su contenido.
+Al final deberemos tener todos los tokens que poseen llaves para acceder al *Marquess's Banquet* y a su contenido.
 
-Para más detalles sobre las aventura o como participar de ellas, les recomendamos visitar el portal de BuccaneerCircus o bien escribirnos a través de Discord, Twitter o Instagram.
+Para más detalles sobre las aventura o como participar de ellas, les recomendamos visitar el portal de *BuccaneerCircus* o bien escribirnos a través de Discord, Twitter o Instagram.
 
 Hasta aquí hemos hecho una introducción al proyecto, analizando las historias y cómo participar de ellas. En lo que sigue daremos un vistazo a los diferentes componentes y tecnologías que forman el proyecto y cómo estos interactúan para lograr que todo funcione.
 

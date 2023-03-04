@@ -22,7 +22,7 @@ Conocer el secreto es solo el primer paso para acceder a las funciones del contr
 
 ![token-hash-generation](/posts/projects/bc/token_hash_generation.png)
 
-En la imagen podemos ver el proceso a través del cual el valor almacenado en un contrato es calculado. Como es de esperar, keccak256 es la función de hash utilizada, la cual se aplica primero sobre el campo *"description"*de la metadata y luego sobre el resultado del encode entre el token id y el secreto.
+En la imagen podemos ver el proceso a través del cual el valor almacenado en un contrato es calculado. Como es de esperar, keccak256 es la función de hash utilizada, la cual se aplica primero sobre el campo *"description"* de la metadata y luego sobre el resultado del encode entre el token id y el secreto.
 Entonces para conocer si un token id es especial, primero debemos poder acceder al campo *"description"* de su metadata, calcular el hash como indicamos más arriba y comparar el resultado con los hashes almacenado en los diferentes contratos. En caso de que exista una coincidencia, sabremos entonces que nuestro token es especial.
 
 Estos hashes los podemos encontrar en los tres contratos de cada historia de BuccaneerCircus indicando que tokens son especiales dentro del conjunto de tokens que poseemos.
@@ -37,6 +37,6 @@ Las funciones de setup **setupBaseContracts()** y **setMarquisBanquetContract()*
 
 El minting en este contrato se ejecuta a través de la función **mintRovers()** que únicamente controla dos cosas antes de realizar el minteo: Que no se exceda el máximo de 16 tokens por transacción y que se esté enviando al contrato los *0.1 ether* por cada token que estemos intentando mintear. La lógica que sigue a estos controles está mayormente implementada en los contratos de los que se heredó.
 
-La última función que analizaremos es la función de **withdraw()**. Esta función es la encargada de recuperar todo el Ethereum que el contrato posee y enviarlo a la dirección que se especifique como parámetro. Lo que hay que remarcar de esta función es que durante su ejecución, el 1% del total del Ethereum almacenado es enviado a la dirección del contrato del *MarqueesBanquete*, que fue previamente establecida en el setup, transfiriendo el remanente al destinatario del *withdraw*. Este 1% representa el primer lugar de donde el *MarqueesBanquete* obtiene su riqueza.
+La última función que analizaremos es la función de **withdraw()**. Esta función es la encargada de recuperar todo el Ethereum que el contrato posee y enviarlo a la dirección que se especifique como parámetro. Lo que hay que remarcar de esta función es que durante su ejecución, el 1% del total del Ethereum almacenado es enviado a la dirección del contrato del *Marquess's Banquet*, que fue previamente establecida en el setup, transfiriendo el remanente al destinatario del *withdraw*. Este 1% representa el primer lugar de donde el *Marquess's Banquet* obtiene su riqueza.
 
 Los detalles sobre la implementación de este contrato pueden ser estudiados en el código del mismo. En lo que sigue analizaremos los restantes tres contratos intentando explicar lo mejor posible su funcionamiento sin caer en detalles técnicos que no contribuyan al entendimiento de los mismos.

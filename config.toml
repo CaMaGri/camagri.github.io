@@ -11,6 +11,8 @@ theme = 'poison'
     # menu_item_separator: Separator between each menu item. HTML allowed (default: " - “)
     # favicon: Absolute path of your favicon.ico file (default: “/favicon.ico”)
 
+    instagram_url = "https://www.instagram.com/buccaneercircus/"
+    discord_url = "https://discord.gg/xMzPTETs"
     github_url = "https://github.com/camagri"
     twitter_url = "https://twitter.com/BuccaneerCircus"
 
