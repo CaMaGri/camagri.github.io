@@ -5,8 +5,8 @@ date: 2023-02-11T14:26:55+01:00
 
 ## Arquitectura ##
 
-Una parte fundamental de *BuccaneerCircus* son los diferentes componentes de su arquitectura y cómo estos cooperan para que todo funcione.
-Entre los requerimientos que definen esta arquitectura, el más relevante es la **revelación progresiva de la metadata**, algo que tomará más sentido que exista cuando analizemos los smart contracts. Por el momento debemos saber que será necesario que algunos campos de la metadata permanezcan ocultos hasta que el token correspondiente sea minteado.
+Una parte fundamental de *BuccaneerCircus* son los diferentes componentes de su arquitectura y cómo estos cooperan para que todo funcione.\
+Entre los requerimientos que definen esta arquitectura, el más relevante es la **revelación progresiva de la metadata**, algo que tomará más sentido que exista cuando analizemos los smart contracts. Por el momento debemos saber que será necesario que algunos campos de la metadata permanezcan ocultos hasta que el token correspondiente sea minteado.\
 Los demás requerimientos podrían ser definidos como:
 
 * Servir el contenido estático del portal (html, imágenes, CSS, JavaScript).
@@ -50,10 +50,10 @@ Veamos un diagrama para entender mejor la idea:
 ![update_minting_info_json_diagram](/posts/projects/bc/update_minting_json.png)
 *(1) Request minting state. (2) Invoque API to make the update. (3) Overwrite minting.json*
 
-En este punto uno se podría preguntar, y ¿Por qué no hacer que la función *get_token_metadata()* consulte directamente el estado de los tokens en lugar de que exista un servicio externo que actualice un archivo? El problema con esto es que los microservicios de *AWS* tienen un tiempo máximo de ejecución de 3 segundos y las llamadas JSON-RPC a *Ethereum* requeridas para conocer el estado de los token, no son tan rápidas.
+En este punto uno se podría preguntar, y ¿Por qué no hacer que la función *get_token_metadata()* consulte directamente el estado de los tokens en lugar de que exista un servicio externo que actualice un archivo? El problema con esto es que los microservicios de *AWS* tienen un tiempo máximo de ejecución de 3 segundos y las llamadas JSON-RPC a *Ethereum* requeridas para conocer el estado de los token, no son tan rápidas.\
 Todo lo anterior conlleva a que exista un delay entre los cambios ocurridos en el estado del *minteo* y el momento en que estos se reflejan en la revelación de la metadata, aunque esto no representa un problema.
 
 Estos scripts corriendo remotamente y manteniendo la información de los tokens actualizada, no se ejecutan en *AWS* sino en una máquina virtual de la plataforma *Digital Ocean*. Se podría haber utilizado *EC2* de *AWS* pero *Digital Ocean* es una plataforma que ya conocíamos y que es muy simple de utilizar además de económica.
 
-Con esto terminamos de analizar la idea general de cómo funciona el circuito de revelación progresiva de metadata del proyecto. Probablemente quedan detalles por conocer los cuales nos pueden consultar sin ningún problema, pero creemos haber logrado el objetivo de mencionar las tecnologías utilizadas y dar a conocer la arquitectura general del proyecto.
+Con esto terminamos de analizar la idea general de cómo funciona el circuito de revelación progresiva de metadata del proyecto. Probablemente quedan detalles por conocer los cuales nos pueden consultar sin ningún problema, pero creemos haber logrado el objetivo de mencionar las tecnologías utilizadas y dar a conocer la arquitectura general del proyecto.\
 En el siguiente artículo analizaremos los *smart contract* y su funcionamiento.

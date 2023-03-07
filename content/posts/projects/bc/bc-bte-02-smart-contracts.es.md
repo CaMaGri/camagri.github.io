@@ -22,10 +22,10 @@ Conocer el secreto es solo el primer paso para acceder a las funciones del contr
 
 ![token-hash-generation](/posts/projects/bc/token_hash_generation.png)
 
-En la imagen podemos ver el proceso a través del cual el valor almacenado en un contrato es calculado. Como es de esperar, keccak256 es la función de hash utilizada, la cual se aplica primero sobre el campo *"description"* de la metadata y luego sobre el resultado del encode entre el token id y el secreto.
+En la imagen podemos ver el proceso a través del cual el valor almacenado en un contrato es calculado. Como es de esperar, **keccak256** es la función de hash utilizada, la cual se aplica primero sobre el campo *"description"* de la metadata y luego sobre el resultado del encode entre el token id y el secreto.
 Entonces para conocer si un token id es especial, primero debemos poder acceder al campo *"description"* de su metadata, calcular el hash como indicamos más arriba y comparar el resultado con los hashes almacenado en los diferentes contratos. En caso de que exista una coincidencia, sabremos entonces que nuestro token es especial.
 
-Estos hashes los podemos encontrar en los tres contratos de cada historia de BuccaneerCircus indicando que tokens son especiales dentro del conjunto de tokens que poseemos.
+Estos hashes los podemos encontrar en los tres contratos de cada historia de *BuccaneerCircus* indicando que tokens son especiales dentro del conjunto de tokens que poseemos.
 
 Entendiendo la mecánica de los secretos estamos listos para comenzar el análisis de los contratos.
 

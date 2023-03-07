@@ -3,7 +3,7 @@ title: "Detras de Escena - Parte 3B - TheCursedOne.sol"
 date: 2023-02-18T12:05:16+01:00
 ---
 
-*TheCursedOne* es un contrato que guarda muchas similitudes en su funcionamiento con *WantedCaptains* salvo por algunos detalles que vamos a analizar. Recordemos que en *TheCursedOne* solo existe un token que podemos reclamar y para ellos debemos obtener tokens que conozcan las ocho estrofas que componen el poema que intentamos completar. El otro detalle es que esas estrofas deben ser anotadas y al momento de pronunciar el poema debemos aún poseer por lo menos cuatro de los ocho tokens que nos las proporcionaron. Suena más complejo de lo que realmente es. Analicemos algunas funciones para aclarar un poco esto:
+**TheCursedOne** es un contrato que guarda muchas similitudes en su funcionamiento con *WantedCaptains* salvo por algunos detalles que vamos a analizar. Recordemos que en *TheCursedOne* solo existe un token que podemos reclamar y para ellos debemos obtener tokens que conozcan las ocho estrofas que componen el poema que intentamos completar. El otro detalle es que esas estrofas deben ser anotadas y al momento de pronunciar el poema debemos aún poseer por lo menos cuatro de los ocho tokens que nos las proporcionaron. Suena más complejo de lo que realmente es. Analicemos algunas funciones para aclarar un poco esto:
 
 ```solidity
 mapping(address => mapping(uint256 => uint256)) private seenTokens;

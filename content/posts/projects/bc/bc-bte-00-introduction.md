@@ -1,6 +1,6 @@
 ---
 title: "Behind the Scenes - Part 1 - Introduction"
-date: 2023-02-11T23:59:35+01:00
+date: 2023-03-05T10:59:35+01:00
 ---
 
 ## The Beginning ## 
@@ -39,21 +39,21 @@ At the end, with all eight stanzas written and keeping at least four of the eigh
 ![The Sunken Legend](/posts/projects/bc/the-sunken-legend_banner.png)
 
 *Where there are pirates, there is treasure and BuccaneerCircus is not an exception.
-**The Sunken Legend** is about a French marquis who possessed vast wealth that seemed endless, to the point of arousing suspicion. Associated with his philanthropy among friends, the locals spoke of the "Marquis' Banquet" to refer to all this. At the time of the man's death, his properties were raided in search of a surreal explanation for so much money, but none was ever found, thus creating the legend.
+**The Sunken Legend** is about a French marquis who possessed vast wealth that seemed endless, to the point of arousing suspicion. Associated with his philanthropy among friends, the locals spoke of the **"Marquess's Banquet"** to refer to all this. At the time of the man's death, his properties were raided in search of a surreal explanation for so much money, but none was ever found, thus creating the legend.\
 Some say that only certain people close to the marquis know the secret to access these riches, which would emerge from the interior of a huge chest; the truth is that whoever manages to lay their hands on it, would obtain an unlimited fortune.*
 
-With this legend begins one of the most ambitious adventures of BuccaneerCircus.
-The Sunken Legend tells us of a chest called the Marquis' Banquet, which can only be accessed by possessing the four keys that open it. These four keys are distributed among the BuccaneerCircus tokens and as in the other adventures, we will only know if a token has a key, once it has been minted.
+With this legend begins one of the most ambitious adventures of *BuccaneerCircus*.
+*The Sunken Legend* tells us of a chest called the *Marquess's Banquet*, which can only be accessed by possessing the four keys that open it. These four keys are distributed among the *BuccaneerCircus* tokens and as in the other adventures, we will only know if a token has a key, once it has been minted.
 
 Some things to highlight
 * Keys can be transferred between tokens as long as the tokens exist under the same account.
 * Nothing prevents a token from having more than one key, even all the keys.
-* The keys will be randomly redistributed among all BuccaneerCircus tokens, once the content of the chest is claimed.
+* The keys will be randomly redistributed among all *BuccaneerCircus* tokens, once the content of the chest is claimed.
 * Finally, a key can also be redistributed if a period of more than one month elapses without it being transferred to another token.
 
-Finally we must have all the tokens that have keys to access the Marquis' Banquet and its contents.
+Finally we must have all the tokens that have keys to access the Marquess's Banquet and its contents.
 
-For more details about the adventures or how to participate in them, we recommend you visit the BuccaneerCircus portal or write to us through Discord, Twitter or Instagram.
+For more details about the adventures or how to participate in them, we recommend you visit the *BuccaneerCircus* portal or write to us through Discord, Twitter or Instagram.
 
 So far we have made an introduction to the project, analyzing the stories and how to participate in them. In what follows we will take a look at the different components and technologies that make up the project and how they interact to make everything work.
 

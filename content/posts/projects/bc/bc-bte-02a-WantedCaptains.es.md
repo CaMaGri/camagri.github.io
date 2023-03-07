@@ -63,7 +63,7 @@ function claim(
 }
 ```
 
-Con dos tokens en nuestro poder que cumplan las condiciones para realizar el reclamo de un capitán, estamos listos para invocar la función **claim()**. Esta función recibe como parámetros por un lado, el ID del capitán que queremos reclamar y por otro, el ID del token más el secreto, de los dos tokens que pretendemos usar como delatores.
+Con dos tokens en nuestro poder que cumplan las condiciones para realizar el reclamo de un capitán, estamos listos para invocar la función **claim()**. Esta función recibe como parámetros por un lado, el ID del capitán que queremos reclamar y por otro, el ID del token más el secreto, de los dos tokens que pretendemos usar como delatores.\
 Analizando la función, lo primero que notamos es que, además de confirmar que el capitán no haya sido reclamado, lo que se controla es que seamos los propietarios de los tokens que intentamos utilizar. Esto es así para evitar un ataque de *FrontRun*, algo que discutiremos en otra sección justo a otros aspectos de seguridad.
 
 Sabiendo que los tokens nos pertenecen, lo siguiente que el contrato hace es validar, a través de la función *isValidSecret()*,  si estos y sus secretos corresponden a valores conocidos para el capitán y sus dos grupos. En caso afirmativo, el capitán es marcado como reclamado y luego transferido a quien invocó la función.

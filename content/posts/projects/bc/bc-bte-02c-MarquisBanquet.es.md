@@ -1,11 +1,11 @@
 ---
-title: "Detras de Escena - Parte 3C - MarquisBanquet.sol"
+title: "Detras de Escena - Parte 3C - TheSunkenLegend.sol"
 date: 2023-02-19T10:06:22+01:00
 ---
 
 Por mucho este fue el desafío más ambicioso pero también el más divertido de implementar. Como son varias las cosas que este contrato realiza, vamos a analizar casos de uso e ir explicando las funciones que se van ejecutando en el proceso.
 
-Comencemos por analizar el caso de uso típico: Juntar las cuatro llaves y reclamar el bounty.
+Comencemos por analizar el caso de uso típico: *Juntar las cuatro llaves y reclamar el bounty.*
 
 1. Cuando minteamos un token que posee una llave, lo que en realidad ocurre es que el token no tiene la llave, sino que tiene el derecho a reclamarla. Este derecho a reclamar la llave está implementado en la función **claimKey()** utilizando los secretos de la misma manera en como se los utilizó en los contratos anteriores. Entonces, lo primero que debemos hacer es reclamar la llave para luego estar en condiciones de transferirla o utilizarla. Notar que esto se realiza una única vez.
 
@@ -70,7 +70,7 @@ Otra restricción existente en la transferencia de las llaves es que estas no pu
     ```
     La función controla que seamos los propietarios de los tokens que poseen las llaves, marcando el flag *"shuffle"* en el proceso, para luego invocar a la función **_requestShuffle()**. Marcar el flag *"shuffle"* sirve para que, una vez se generen los números aleatorios, la función de callback que los recibe pueda saber qué llaves deben ser redistribuidas y cuáles no. Por estar reclamando el bounty, todas las llaves serán redistribuidas, pero como analizaremos más adelante existen casos donde no es así.
 
-4. En este punto es donde las cosas se ponen un poco más complicadas. La función *_requestShuffle()* es la encargada de invocar la función externa **requestRandomWords()** que dispara la generación de números aleatorios. Una vez generados los números la función **fulfillRandomWords()** es invocada con los resultados, dando continuidad al proceso.
+4. En este punto es donde las cosas se ponen un poco más complicadas. La función *_requestShuffle()* es la encargada de invocar la función externa **requestRandomWords()** que dispara la generación de números aleatorios. Una vez generados los números la función **fulfillRandomWords()** es invocada con los resultados, dando continuidad al proceso.\
 Para conocer mas sobre el funcionamiento de *VRF (Verifiable Random Function)* de *ChainLink*, les dejamos el siguiente [link](https://blog.chain.link/verifiable-random-function-vrf/)
 
     ```solidity
@@ -107,7 +107,7 @@ Para conocer mas sobre el funcionamiento de *VRF (Verifiable Random Function)* d
 
     Una vez tenemos el identificador del requerimiento de números aleatorios, lo siguiente es crear una instancia de Payment que será almacenada utilizando el identificador como índice. Los payments son el medio a través del cual el contrato sabe a quién le debe pagar, cuánto le debe pagar,  si el pago esta aprobado o no, si fue pagado o no y cuando ese pago expira. Con toda esa información en el objeto y habiendo guardado algunas referencias para facilitar el acceso al mismo, estamos listo para finalizar la función y dar lugar a la espera de la invocación de la función de callback *fulfillRandomWords()*.
 
-1. Durante el tiempo que el contrato espera la invocación de la función de callback *fulfillRandomWords()*, éste permanece parcialmente bloqueado para las funciones que aplican el modificador *whenNotShuffling()*
+5. Durante el tiempo que el contrato espera la invocación de la función de callback *fulfillRandomWords()*, éste permanece parcialmente bloqueado para las funciones que aplican el modificador *whenNotShuffling()*
 
     ```solidity
     function fulfillRandomWords(
@@ -142,7 +142,7 @@ Para conocer mas sobre el funcionamiento de *VRF (Verifiable Random Function)* d
 
     Al finalizar, el pago correspondiente al requerimiento es aprobado y la variable *shuffleStartBlock* es puesta a cero, para permitir que otra distribución tenga lugar.
     
-2. Con el *Payment* aprobado, estamos listos para reclamarlo. Invocando la función **getUserPayments()** y especificando la dirección de nuestra wallet, podemos saber en qué estado se encuentra nuestro pago, incluido el hecho de si está aprobado o el monto del mismo.\
+6. Con el *Payment* aprobado, estamos listos para reclamarlo. Invocando la función **getUserPayments()** y especificando la dirección de nuestra wallet, podemos saber en qué estado se encuentra nuestro pago, incluido el hecho de si está aprobado o el monto del mismo.\
 Para poder hacernos del Ethereum del pago ya aprobado, debemos invocar la función **claimPayment()** indicando el ID del pago a ejecutar. 
 
     ```solidity
@@ -172,7 +172,7 @@ Para poder hacernos del Ethereum del pago ya aprobado, debemos invocar la funci�
     *claimPayment()* controlará que el pago esté aprobado y no haya sido ejecutado, que el destinatario del pago seamos nosotros y que el pago no haya expirado. Con estas condiciones satisfechas, el mismo es marcado como pagado para evitar llamadas reentrantes y luego se ejecuta la transferencia del monto indicado.\
     Algunas cosas a notar en este punto: Podemos estar recibiendo un monto menor a la cantidad de dinero que el contrato tiene al momento de invocar *claimPayment()*, ya que el pago se define al momento de invocar la función *claimBounty()* y no despues. Podemos tener varios pagos pendientes siempre y cuando estos no tengan más de una semana desde su creación.
 
-1. Por último, la función **cleanPayments()** trabaja como una suerte de *Garbage Collector*, recuperando el balance de todos aquellos pagos que vencieron sin concretarse.
+7. Por último, la función **cleanPayments()** trabaja como una suerte de *Garbage Collector*, recuperando el balance de todos aquellos pagos que vencieron sin concretarse.
 
     ```solidity
     function cleanPayments() public {
@@ -199,7 +199,7 @@ Para poder hacernos del Ethereum del pago ya aprobado, debemos invocar la funci�
         }
     }
     ```
-    La variable **cleanPaymentsIndex** referencia el próximo pago a procesar por **cleanPayments()** dentro de los pagos existentes en **allPaymentIds**. Cuando cleanPaymentsIndex referencia un pago que ha expirado pero sin haberse concretado, la función devuelve al balance del bounty el monto del pago antes de continuar con la siguiente entrada. Al final la función se detendrá cuando no haya más pagos que procesar o cuando el pago referenciado no esté expirado ni finalizado.
+    La variable **cleanPaymentsIndex** referencia el próximo pago a procesar por **cleanPayments()** dentro de los pagos existentes en **allPaymentIds**. Cuando *cleanPaymentsIndex* referencia un pago que ha expirado pero sin haberse concretado, la función devuelve al balance del bounty el monto del pago antes de continuar con la siguiente entrada. Al final la función se detendrá cuando no haya más pagos que procesar o cuando el pago referenciado no esté expirado ni finalizado.
 
 
 Hasta aquí hemos analizado el caso de uso típico de este contrato, dejando fuera del análisis solo algunas funciones que veremos a continuación.
