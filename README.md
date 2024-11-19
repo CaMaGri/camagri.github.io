@@ -1,2 +1,2 @@
 # camagri.github.io
-CaMaGri knowledge repository
+CaMaGri Blog
